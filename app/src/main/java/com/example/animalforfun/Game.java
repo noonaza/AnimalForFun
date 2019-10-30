@@ -29,6 +29,7 @@ public class Game extends AppCompatActivity {
     String answer;
     MediaPlayer mediaPlayer;
     int score = 0;
+    String getNameString;
 
 
 
@@ -242,12 +243,13 @@ public class Game extends AppCompatActivity {
     }    //end choice () Method
 
     private void diaboxlogScore() {
+        getNameString = getIntent().getStringExtra("Name");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("summary score");
-        builder.setMessage("your score is " + score)
+        builder.setMessage(getNameString+"your score is " + score)
                 .setCancelable(false)
-                .setPositiveButton("Play sgain_", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Play sgain", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent = getIntent();
